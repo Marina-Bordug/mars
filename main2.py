@@ -89,5 +89,24 @@ def pl_name(planet_name):
 '''
 
 
+@app.route("/results/<nickname>/<int:level>/<float:rating>")
+def user(nickname, level, rating):
+    return f'''
+    <link rel="stylesheet" 
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                    crossorigin="anonymous">
+    <h1>Результаты отбора</h1>
+    <h2>Претендента на участие в миссии {nickname}</h2>
+    <div class="alert alert-success" role="alert">
+                      <h3>Поздравляем! Ваш рейтинг после {level} этапа отбора</h3>
+                    </div>
+                      <h3>составляет {rating}!</h3>
+    <div class="alert alert-warning" role="alert">
+                      <h3>Желаем удачи!</h3>
+                    </div>
+'''
+
+
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8082)
